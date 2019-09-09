@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1060.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="280.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="訓練資料圖示" textAlignment="CENTER" wrappingWidth="240.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="540.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="訓練資料加雜訊回想結果" textAlignment="CENTER" wrappingWidth="240.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="800.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="測試資料回想結果" textAlignment="CENTER" wrappingWidth="240.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <VBox alignment="CENTER" layoutX="280.0" layoutY="60.0" prefHeight="450.0" prefWidth="240.0">
+         <children>
+            <TextArea id="trainTA" editable="false" prefHeight="430.0" prefWidth="360.0" />
+         </children></VBox>
+      <VBox alignment="CENTER" layoutX="540.0" layoutY="60.0" prefHeight="450.0" prefWidth="240.0">
+         <children>
+            <TextArea id="NoiseTA" editable="false" prefHeight="430.0" prefWidth="360.0" />
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" layoutX="800.0" layoutY="60.0" prefHeight="450.0" prefWidth="240.0">
+         <children>
+            <TextArea id="testTA" editable="false" prefHeight="430.0" prefWidth="240.0" />
+         </children></VBox>
+      <VBox alignment="TOP_CENTER" layoutX="20.0" layoutY="70.0" prefHeight="500.0" prefWidth="240.0">
+         <children>
+            <Button id="loadTrainingFile" alignment="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Load Traing File">
+               <font>
+                  <Font size="11.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Button>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Text id="TrainingPath" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="200.0" />
+               </children>
+               <VBox.margin>
+                  <Insets left="15.0" right="15.0" top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <Button id="loadTestingFile" alignment="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Load Testing File">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Button>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Text id="TestingPath" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="200.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets left="15.0" right="15.0" top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <Button id="Training" alignment="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="New Training">
+               <font>
+                  <Font size="11.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button id="Testing" alignment="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="New Testing">
+               <font>
+                  <Font size="11.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+            <HBox prefHeight="27.0" prefWidth="240.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="雜訊量：" wrappingWidth="80.0">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </Text>
+                  <TextField id="noise" prefWidth="140.0" promptText="預設為 0%" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox layoutX="540.0" layoutY="520.0" prefHeight="100.0" prefWidth="240.0">
+         <children>
+            <HBox prefHeight="27.0" prefWidth="200.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="總回想次數：" wrappingWidth="120.0">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Text id="thinkNoiseTimes" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="120.0">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="27.0" prefWidth="200.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="平均測試正確率：" wrappingWidth="120.0">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Text id="NoiseRecRate" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="120.0">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox layoutX="800.0" layoutY="520.0" prefHeight="100.0" prefWidth="240.0">
+         <children>
+            <HBox prefHeight="27.0" prefWidth="200.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="總回想次數：" wrappingWidth="120.0">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Text id="thinkTimes" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="120.0">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="27.0" prefWidth="200.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="平均測試正確率：" wrappingWidth="120.0">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Text id="testingRecRate" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="120.0">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</Pane>
